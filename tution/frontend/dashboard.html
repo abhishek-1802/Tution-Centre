@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Tuition Center Dashboard</h1>
+
+<section>
+  <h2>Add Student</h2>
+  <input type="text" id="studentName" placeholder="Student Name">
+  <input type="text" id="teacher" placeholder="Teacher">
+  <button onclick="addStudent()">Add Student</button>
+</section>
+
+<section>
+  <h2>Add Attendance</h2>
+  <input type="date" id="attDate">
+  <input type="text" id="attStudent" placeholder="Student Name">
+  <input type="text" id="attTeacher" placeholder="Teacher">
+  <input type="number" id="hours" placeholder="Hours">
+  <button onclick="addAttendance()">Add Attendance</button>
+</section>
+
+<section>
+  <h2>Add Payment</h2>
+  <input type="date" id="payDate">
+  <input type="text" id="payStudent" placeholder="Student Name">
+  <input type="number" id="amount" placeholder="Amount">
+  <button onclick="addPayment()">Add Payment</button>
+</section>
+
+<section>
+  <h2>Attendance Records</h2>
+  <table id="attendanceTable" border="1">
+    <tr><th>Date</th><th>Student</th><th>Teacher</th><th>Hours</th></tr>
+  </table>
+</section>
+
+<section>
+  <h2>Payment Records</h2>
+  <table id="paymentTable" border="1">
+    <tr><th>Student</th><th>Date</th><th>Amount</th></tr>
+  </table>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

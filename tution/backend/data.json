@@ -1,0 +1,27 @@
+{
+  "admin": {
+    "username": "admin",
+    "password": "1234"
+  },
+  "students": [
+    {
+      "studentName": "abc",
+      "teacher": "def"
+    }
+  ],
+  "attendance": [
+    {
+      "date": "2025-09-19",
+      "studentName": "abc",
+      "teacher": "def",
+      "hours": "2"
+    }
+  ],
+  "payments": [
+    {
+      "date": "2025-09-19",
+      "studentName": "abc",
+      "amount": "100"
+    }
+  ]
+}
