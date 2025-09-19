@@ -2,17 +2,16 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const fs = require("fs");
+const path = require("path");
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000; // Vercel uses process.env.PORT
 
+// Middlewares
 app.use(cors());
 app.use(bodyParser.json());
 
-const path = require("path");
-
 // Serve static frontend files
 app.use(express.static(path.join(__dirname, "../frontend")));
-
 
 const DATA_FILE = "./data.json";
 
@@ -23,6 +22,8 @@ function readData() {
 function writeData(data) {
   fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2));
 }
+
+// -------------------- API Routes --------------------
 
 // Admin login
 app.post("/login", (req, res) => {
@@ -68,10 +69,10 @@ app.get("/data", (req, res) => {
   res.json(data);
 });
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
-
+// -------------------- Catch-all to serve frontend --------------------
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/index.html"));
 });
 
+// -------------------- Start server --------------------
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
