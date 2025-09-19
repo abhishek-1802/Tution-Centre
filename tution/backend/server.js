@@ -8,6 +8,12 @@ const PORT = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
+const path = require("path");
+
+// Serve static frontend files
+app.use(express.static(path.join(__dirname, "../frontend")));
+
+
 const DATA_FILE = "./data.json";
 
 function readData() {
@@ -63,3 +69,9 @@ app.get("/data", (req, res) => {
 });
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/index.html"));
+});
+
